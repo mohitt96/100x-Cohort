@@ -34,7 +34,7 @@ function signJwt(username, password) {
  */
 function verifyJwt(token) {
    try {
-    const validateToken = jwt.verify(token, jwtPassword);
+    jwt.verify(token, jwtPassword);
     return true; 
    } catch(err) {
     return false;
