@@ -9,7 +9,7 @@ router.post('/signup', async (req, res) => {
         const username = req.body.username;
         const password = req.body.password;
 
-        const adminUser = await Admin.findOne({username});
+        const adminUser = await Admin.findOne({username, password});
         if(adminUser) {
             return res.status(403).json({
                 message: 'Admin user already exists'
@@ -49,7 +49,6 @@ router.post('/courses', adminMiddleware, async (req, res) => {
             message: 'Course could not be created'
         });
     }
-    
 });
 
 router.get('/courses', adminMiddleware, async (req, res) => {
