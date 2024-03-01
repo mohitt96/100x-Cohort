@@ -8,9 +8,9 @@ export function Assignment2() {
 
     const handleReRender = () => {
         // Update state to force re-render
-        renderCount.current++;
         forceRender(Math.random());
     };
+    renderCount.current = renderCount.current + 1;
 
     return (
         <div>
